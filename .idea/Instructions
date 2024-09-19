@@ -2,19 +2,19 @@ Vamos a crear una aplicación para gestionar un torneo de videojuegos. Cada juga
 de habilidades y un historial de victorias. Vamos a:
 
 - Registrar jugadores. //
-- Registrar sus habilidades (usando un Set).
+- Registrar sus habilidades (usando un Set). //
 - Llevar un registro de los niveles en los que han competido y sus victorias (usando un Map). //
 - Utilizar Streams para realizar consultas, como:
-- Obtener los jugadores que tienen una habilidad específica.
-- Obtener el total de victorias por jugador.
-- Agrupar los jugadores por la cantidad de habilidades que poseen.
-- Jugador es la clase principal que tiene un conjunto de habilidades (Set<String>) y un mapa para
-  registrar el nivel y el número de victorias (Map<String, Integer>).
+    - Obtener los jugadores que tienen una habilidad específica.
+    - Obtener el total de victorias por jugador.
+    - Agrupar los jugadores por la cantidad de habilidades que poseen.
+    - Jugador es la clase principal que tiene un conjunto de habilidades (Set<String>) y un mapa para
+      registrar el nivel y el número de victorias (Map<String, Integer>). //
 
 Usamos Streams para:
 - Filtrar los jugadores que tienen una habilidad específica.
-- Crear un mapa con el total de victorias por jugador.
-- Agrupar jugadores por la cantidad de habilidades que poseen.
+- Crear un mapa con el total de victorias por jugador. //
+- Agrupar jugadores por la cantidad de habilidades que poseen. ****
 
 * En el main:
 

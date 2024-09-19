@@ -1,4 +1,6 @@
 package Player;
+import java.util.Set;
+import Skills.Skills;
 
 public class Player {
 
@@ -6,6 +8,7 @@ public class Player {
     private String gamerTag;
     private int myLevel;
     private int numWins;
+    private Skills skills;
 
     // Constructor
     public Player(String userName, String gamerTag, int myLevel, int numWins) {
@@ -13,7 +16,13 @@ public class Player {
         this.gamerTag = gamerTag;
         this.myLevel = myLevel;
         this.numWins = numWins;
+        this.skills = new Skills();
     }
+
+    public void assignSkills(String category) { this.skills.setCategory(category); }
+
+    public Set<String> getSkills() { return skills.getSkills(); }
+
     public void setUserName(String userName) { this.userName = userName;}
 
     public String getUserName() { return this.userName;}
@@ -29,4 +38,14 @@ public class Player {
     public void setNumWins(int numWins) { this.numWins = numWins; }
 
     public int getNumWins() { return this.numWins; }
+
+
+
+    public void toStringPlayer() {
+        String playerInfo = "Username: " + getUserName() + "\n"
+                + "GamerTag: " + getGamerTag() + "\n"
+                + "Rank Level: " + getMyLevel() + "\n"
+                + "Total Wins: " + getNumWins() + "\n";
+        System.out.println(playerInfo);
+    }
 }

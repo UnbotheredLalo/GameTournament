@@ -29,5 +29,18 @@ public class Main {
         playerWinMap.put(player8.getMyLevel(), player8.getNumWins());
         playerWinMap.put(player9.getMyLevel(), player9.getNumWins());
         playerWinMap.put(player10.getMyLevel(), player10.getNumWins());
+
+        player1.assignSkills("Duelists");
+        player2.assignSkills("Sentinels");
+        player3.assignSkills("sentinels");
+        player4.assignSkills("Collectors");
+        player5.assignSkills("Initiators");
+        player6.assignSkills("INITIATORS");
+        player7.assignSkills("collectors");
+        player8.assignSkills("Duelists");
+        player9.assignSkills("duelists");
+        player10.assignSkills("Sentinels");
+
+
     }
 }
