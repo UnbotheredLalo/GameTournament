@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 import Player.Player;
+import SortByWins.SortByWins;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,20 +36,24 @@ public class Main {
         gameContestants.add(player10);
         System.out.println(gameContestants);
 
-        Map<Integer, Integer> playerWinMap = new HashMap<>();
-        playerWinMap.put(player1.getMyLevel(), player1.getNumWins());
-        playerWinMap.put(player2.getMyLevel(), player2.getNumWins());
-        playerWinMap.put(player3.getMyLevel(), player3.getNumWins());
-        playerWinMap.put(player4.getMyLevel(), player4.getNumWins());
-        playerWinMap.put(player5.getMyLevel(), player5.getNumWins());
-        playerWinMap.put(player6.getMyLevel(), player6.getNumWins());
-        playerWinMap.put(player7.getMyLevel(), player7.getNumWins());
-        playerWinMap.put(player8.getMyLevel(), player8.getNumWins());
-        playerWinMap.put(player9.getMyLevel(), player9.getNumWins());
-        playerWinMap.put(player10.getMyLevel(), player10.getNumWins());
+        Map<Integer, Integer> playersMap = new HashMap<>();
+        playersMap.put(player1.getMyLevel(), player1.getNumWins());
+        playersMap.put(player2.getMyLevel(), player2.getNumWins());
+        playersMap.put(player3.getMyLevel(), player3.getNumWins());
+        playersMap.put(player4.getMyLevel(), player4.getNumWins());
+        playersMap.put(player5.getMyLevel(), player5.getNumWins());
+        playersMap.put(player6.getMyLevel(), player6.getNumWins());
+        playersMap.put(player7.getMyLevel(), player7.getNumWins());
+        playersMap.put(player8.getMyLevel(), player8.getNumWins());
+        playersMap.put(player9.getMyLevel(), player9.getNumWins());
+        playersMap.put(player10.getMyLevel(), player10.getNumWins());
 
         //  Prints the whole dictionary
-        System.out.println(playerWinMap);
+        SortByWins sorter = SortByWins();
+        Map<Integer, Integer> winRankingMap = new sorter.sortByWins(playersMap);
+
+        System.out.println("Total Wins Ranking: "+ winRankingMap);
+        System.out.println(playersMap);
 
         // Sorting by Number of Wins
 

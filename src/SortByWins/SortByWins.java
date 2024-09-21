@@ -1,10 +1,8 @@
 package SortByWins;
 
 import Player.Player;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
 
 public class SortByWins {
     public static void main(String[] args) {
@@ -20,19 +18,6 @@ public class SortByWins {
         Player player9 = new Player("_Shade_", "NamiValadez2109", 77, 1549);
         Player player10 = new Player("bsw. Aszche", "Lindemann21", 43, 891);
 
-        ArrayList<Player> gameContestants = new ArrayList<>();
-        gameContestants.add(player1);
-        gameContestants.add(player2);
-        gameContestants.add(player3);
-        gameContestants.add(player4);
-        gameContestants.add(player5);
-        gameContestants.add(player6);
-        gameContestants.add(player7);
-        gameContestants.add(player8);
-        gameContestants.add(player9);
-        gameContestants.add(player10);
-        System.out.println(gameContestants);
-
         Map<Integer, Integer> playerWinMap = new HashMap<>();
         playerWinMap.put(player1.getMyLevel(), player1.getNumWins());
         playerWinMap.put(player2.getMyLevel(), player2.getNumWins());
@@ -44,10 +29,22 @@ public class SortByWins {
         playerWinMap.put(player8.getMyLevel(), player8.getNumWins());
         playerWinMap.put(player9.getMyLevel(), player9.getNumWins());
         playerWinMap.put(player10.getMyLevel(), player10.getNumWins());
+
     }
+    // A method for sorting by wins is created
+    public Map<Integer, Integer> sortByWins(Map<Integer, Integer> map)  {
 
-    Map<Integer, Integer> winRankingMap = new winRankingMap(playerWinMap);
+        //a List created with the entries of map
+        List<Map.Entry<Integer, Integer>> sortEntries = new ArrayList<>(map.entrySet());
 
-    public static Map<Integer, Integer> sortByWins(sortMap) {
+        //Combining sorted and compareTo in order to get descendant order of the values
+        sortEntries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+        //Using LinkedHashMap for keeping the same insertion order
+        Map<Integer, Integer> sortedWinsMap = new LinkedHashMap<>();
+        for (Map.Entry<Integer, Integer> entry : sortEntries) {
+            sortedWinsMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedWinsMap
     }
 }
