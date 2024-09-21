@@ -57,6 +57,7 @@ public class Main {
         Map<Integer, Integer> winRankingMap = Sort.sortByWins(playersMap);
 
         System.out.println("Total Wins Ranking: "+ winRankingMap);
+        System.out.println("Quiondas we");
 
         // Sorting by Number of Wins
 
