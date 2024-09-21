@@ -25,7 +25,7 @@ Descripción adicional:
 
 Queue: Usaremos una Queue para manejar los jugadores en una fila de espera para competir en los niveles.
 Stack: Usaremos un Stack para llevar un historial de las últimas acciones (como los últimos
-niveles jugados).
+niveles jugados). ***
 
 Nuevas funcionalidades:
 Queue: En este ejemplo, usamos una cola (Queue<Jugador>) para gestionar el orden en el que los jugadores

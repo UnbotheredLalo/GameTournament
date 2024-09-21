@@ -1,6 +1,10 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 import Player.Player;
 
@@ -14,9 +18,22 @@ public class Main {
         Player player5 = new Player("Earth Hashira", "HimejimaGyomei", 10,229);
         Player player6 = new Player("Mahito the Cursed", "PatchedFace010", 2,51);
         Player player7 = new Player("Aisha Kombucha >.<", "GalvanAisha888", 34, 773);
-        Player player8 = new Player("Hannia Psst", "LileAqua33",180, 3500);
+        Player player8 = new Player("Psst-Hannia", "LileAqua33",180, 3500);
         Player player9 = new Player("_Shade_", "NamiValadez2109",77,1549);
         Player player10 = new Player("bsw. Aszche", "Lindemann21",43, 891);
+
+        ArrayList<Player> gameContestants = new ArrayList<>();
+        gameContestants.add(player1);
+        gameContestants.add(player2);
+        gameContestants.add(player3);
+        gameContestants.add(player4);
+        gameContestants.add(player5);
+        gameContestants.add(player6);
+        gameContestants.add(player7);
+        gameContestants.add(player8);
+        gameContestants.add(player9);
+        gameContestants.add(player10);
+        System.out.println(gameContestants);
 
         Map<Integer, Integer> playerWinMap = new HashMap<>();
         playerWinMap.put(player1.getMyLevel(), player1.getNumWins());
@@ -30,6 +47,11 @@ public class Main {
         playerWinMap.put(player9.getMyLevel(), player9.getNumWins());
         playerWinMap.put(player10.getMyLevel(), player10.getNumWins());
 
+        //  Prints the whole dictionary
+        System.out.println(playerWinMap);
+
+        // Sorting by Number of Wins
+
         player1.assignSkills("Duelists");
         player2.assignSkills("Sentinels");
         player3.assignSkills("sentinels");
@@ -40,6 +62,9 @@ public class Main {
         player8.assignSkills("Duelists");
         player9.assignSkills("duelists");
         player10.assignSkills("Sentinels");
+
+        ArrayList<Player> competitors = new ArrayList<>();
+        competitors.add(player1);
 
 
     }
