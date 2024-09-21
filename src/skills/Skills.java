@@ -1,19 +1,17 @@
-package Skills;
+package skills;
 import java.util.HashSet;
 import java.util.Set;
-import Player.Player;
 
 public class Skills {
 
-    private Player player;
     private Set<String> skills;
 
     public Skills() { this.skills = new HashSet<>(); }
 
     // Setters and Getters
-    public void setCategory(String category) {
-        switch (category.toLowerCase()) {
-            case "controllers":
+    public void setCategory(Category category) {
+        switch (category) {
+            case CONTROLLERS:
                 skills.add("Sky Smoke");
                 skills.add("Orbital Strike");
                 skills.add("Stim Beacon");
@@ -26,9 +24,9 @@ public class Skills {
                 skills.add("Reckoning");
                 skills.add("Cove");
                 skills.add("High Tide");
-            break;
+                break;
 
-            case "initiators":
+            case INITIATORS:
                 skills.add("Recon Bolt");
                 skills.add("Hunter's Fury");
                 skills.add("Owl Drone");
@@ -47,7 +45,7 @@ public class Skills {
                 skills.add("Flash/Drive");
                 break;
 
-            case "sentinels":
+            case SENTINELS:
                 skills.add("Turret");
                 skills.add("Lockdown");
                 skills.add("Nanoswarm");
@@ -66,7 +64,7 @@ public class Skills {
                 skills.add("Sonic Sensor");
                 break;
 
-            case "duelists":
+            case DUELISTS:
                 skills.add("Heating Up");
                 skills.add("Hot Hands");
                 skills.add("Run it Back");
@@ -88,17 +86,11 @@ public class Skills {
                 break;
 
             default:
-                System.out.println("Not a valid category");
+                System.out.println("Not a valid category. Thge input category is: " + category);
                 break;
 
-
+        }
     }
 
     public Set<String> getSkills() { return skills; }
-
-    @Override
-    public String toStringPlayer() {
-        return player.toStringPlayer() +
-                "Skills: " + getSkills() + "\n";
-    }
 }

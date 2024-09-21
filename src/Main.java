@@ -1,16 +1,21 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Map;
-import java.util.Set;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.stream.Collectors;
-import Player.Player;
-import SortByWins.SortByWins;
+
+import player.Player;
+import sort.Sort;
+
+import static skills.Category.CONTROLLERS;
+import static skills.Category.DUELISTS;
+import static skills.Category.INITIATORS;
+import static skills.Category.SENTINELS;
 
 public class Main {
     public static void main(String[] args) {
+
+        Player newPlayer1 = new Player("xXx Dartrox xXx", "Dartrox21");
 
         Player player1 = new Player("El Mata Jotos", "FlowerBoyXO91", 55, 1106 );
         Player player2 = new Player("xXxPepitoxXx", "PepeProblemz88", 150, 2800);
@@ -49,28 +54,22 @@ public class Main {
         playersMap.put(player10.getMyLevel(), player10.getNumWins());
 
         //  Prints the whole dictionary
-        SortByWins sorter = SortByWins();
-        Map<Integer, Integer> winRankingMap = new sorter.sortByWins(playersMap);
+        Map<Integer, Integer> winRankingMap = Sort.sortByWins(playersMap);
 
         System.out.println("Total Wins Ranking: "+ winRankingMap);
-        System.out.println(playersMap);
 
         // Sorting by Number of Wins
 
-        player1.assignSkills("Duelists");
-        player2.assignSkills("Sentinels");
-        player3.assignSkills("sentinels");
-        player4.assignSkills("Collectors");
-        player5.assignSkills("Initiators");
-        player6.assignSkills("INITIATORS");
-        player7.assignSkills("collectors");
-        player8.assignSkills("Duelists");
-        player9.assignSkills("duelists");
-        player10.assignSkills("Sentinels");
-
-        ArrayList<Player> competitors = new ArrayList<>();
-        competitors.add(player1);
-
+        player1.assignSkills(DUELISTS);
+        player2.assignSkills(SENTINELS);
+        player3.assignSkills(SENTINELS);
+        player4.assignSkills(CONTROLLERS);
+        player5.assignSkills(INITIATORS);
+        player6.assignSkills(INITIATORS);
+        player7.assignSkills(CONTROLLERS);
+        player8.assignSkills(DUELISTS);
+        player9.assignSkills(DUELISTS);
+        player10.assignSkills(SENTINELS);
 
     }
 }
