@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class Skills {
 
-    private Set<String> skills;
+    private final Set<String> skills;
 
     public Skills() { this.skills = new HashSet<>(); }
 
