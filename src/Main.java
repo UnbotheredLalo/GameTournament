@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import player.Player;
-import sort.Sort;
+import utils.Sort;
 
-import static skills.Category.CONTROLLERS;
-import static skills.Category.DUELISTS;
-import static skills.Category.INITIATORS;
-import static skills.Category.SENTINELS;
+import static skills.Category.CONTROLLER;
+import static skills.Category.DUELIST;
+import static skills.Category.INITIATOR;
+import static skills.Category.SENTINEL;
 
 public class Main {
     public static void main(String[] args) {
@@ -61,16 +61,16 @@ public class Main {
 
         // Sorting by Number of Wins
 
-        player1.assignSkills(DUELISTS);
-        player2.assignSkills(SENTINELS);
-        player3.assignSkills(SENTINELS);
-        player4.assignSkills(CONTROLLERS);
-        player5.assignSkills(INITIATORS);
-        player6.assignSkills(INITIATORS);
-        player7.assignSkills(CONTROLLERS);
-        player8.assignSkills(DUELISTS);
-        player9.assignSkills(DUELISTS);
-        player10.assignSkills(SENTINELS);
+        player1.assignSkills(DUELIST);
+        player2.assignSkills(SENTINEL);
+        player3.assignSkills(SENTINEL);
+        player4.assignSkills(CONTROLLER);
+        player5.assignSkills(INITIATOR);
+        player6.assignSkills(INITIATOR);
+        player7.assignSkills(CONTROLLER);
+        player8.assignSkills(DUELIST);
+        player9.assignSkills(DUELIST);
+        player10.assignSkills(SENTINEL);
 
     }
 }

@@ -1,8 +1,12 @@
 package skills;
 
 public enum Category {
-    CONTROLLERS,
-    INITIATORS,
-    SENTINELS,
-    DUELISTS;
+
+    CONTROLLER,
+
+    INITIATOR,
+
+    SENTINEL,
+
+    DUELIST;
 }

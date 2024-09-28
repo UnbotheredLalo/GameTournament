@@ -1,8 +1,10 @@
 package player;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
-import skills.Skills;
+import skills.Skill;
 import skills.Category;
+import utils.DateTimeUtils;
 
 public class Player {
 
@@ -10,7 +12,8 @@ public class Player {
     private String gamerTag;
     private int myLevel;
     private int numWins;
-    private Skills skills;
+    private Skill skill;
+    private ZonedDateTime createdAt; // TODO: Create getters and setters
 
     // Constructor
     public Player(String userName, String gamerTag, int myLevel, int numWins) {
@@ -18,7 +21,8 @@ public class Player {
         this.gamerTag = gamerTag;
         this.myLevel = myLevel;
         this.numWins = numWins;
-        this.skills = new Skills();
+        this.skill = new Skill();
+        createdAt = DateTimeUtils.getCurrentZonedDateTime();
     }
 
     public Player(String userName, String gamerTag) {
@@ -29,9 +33,9 @@ public class Player {
         System.out.println("Felicidades!! " + getUserName() + " Has creado tu usuario");
     }
 
-    public void assignSkills(Category category) { this.skills.setCategory(category); }
+    public void assignSkills(Category category) { this.skill.setCategory(category); }
 
-    public Set<String> getSkills() { return skills.getSkills(); }
+    public Set<String> getSkill() { return skill.getSkills(); }
 
     public void setUserName(String userName) { this.userName = userName;}
 
@@ -49,7 +53,7 @@ public class Player {
 
     public int getNumWins() { return this.numWins; }
 
-
+    // TODO: Add created at to method
     @Override
     public String toString() {
         return "Username: " + getUserName() + "\n"

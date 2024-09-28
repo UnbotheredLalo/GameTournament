@@ -2,16 +2,16 @@ package skills;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Skills {
+public class Skill {
 
     private final Set<String> skills;
 
-    public Skills() { this.skills = new HashSet<>(); }
+    public Skill() { this.skills = new HashSet<>(); }
 
     // Setters and Getters
     public void setCategory(Category category) {
         switch (category) {
-            case CONTROLLERS:
+            case CONTROLLER:
                 skills.add("Sky Smoke");
                 skills.add("Orbital Strike");
                 skills.add("Stim Beacon");
@@ -26,7 +26,7 @@ public class Skills {
                 skills.add("High Tide");
                 break;
 
-            case INITIATORS:
+            case INITIATOR:
                 skills.add("Recon Bolt");
                 skills.add("Hunter's Fury");
                 skills.add("Owl Drone");
@@ -45,7 +45,7 @@ public class Skills {
                 skills.add("Flash/Drive");
                 break;
 
-            case SENTINELS:
+            case SENTINEL:
                 skills.add("Turret");
                 skills.add("Lockdown");
                 skills.add("Nanoswarm");
@@ -64,7 +64,7 @@ public class Skills {
                 skills.add("Sonic Sensor");
                 break;
 
-            case DUELISTS:
+            case DUELIST:
                 skills.add("Heating Up");
                 skills.add("Hot Hands");
                 skills.add("Run it Back");
