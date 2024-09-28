@@ -4,9 +4,11 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import exceptions.DuplicateExceptions;
 import player.Player;
 import sort.Sort;
 
+import static player.Player.existingUsernames;
 import static skills.Category.CONTROLLERS;
 import static skills.Category.DUELISTS;
 import static skills.Category.INITIATORS;
@@ -15,18 +17,33 @@ import static skills.Category.SENTINELS;
 public class Main {
     public static void main(String[] args) {
 
-        Player newPlayer1 = new Player("xXx Dartrox xXx", "Dartrox21");
+        try {
+            Player newPlayer1 = new Player("xXx Dartrox xXx", "Dartrox21");
+            Player player1 = new Player("El Mata Jotos", "FlowerBoyXO91", 55, 1106);
+            Player player2 = new Player("xXxPepitoxXx", "PepeProblemz88", 150, 2800);
+            Player player3 = new Player("The Piped Piper", "MustaineDave1977", 90, 1909);
+            Player player4 = new Player("The Tomorrow XO", "AbelTesfaye24", 20, 578);
+            Player player5 = new Player("Earth Hashira", "HimejimaGyomei", 10, 229);
+            Player player6 = new Player("Mahito the Cursed", "PatchedFace010", 2, 51);
+            Player player7 = new Player("Aisha Kombucha >.<", "GalvanAisha888", 34, 773);
+            Player player8 = new Player("Psst-Hannia", "LileAqua33", 180, 3500);
+            Player player9 = new Player("_Shade_", "NamiValadez2109", 77, 1549);
+            Player player10 = new Player("bsw. Aszche", "Lindemann21", 43, 891);
 
-        Player player1 = new Player("El Mata Jotos", "FlowerBoyXO91", 55, 1106 );
-        Player player2 = new Player("xXxPepitoxXx", "PepeProblemz88", 150, 2800);
-        Player player3 = new Player("The Piped Piper", "MustaineDave1977", 90,1909);
-        Player player4 = new Player("The Tomorrow XO", "AbelTesfaye24", 20,578);
-        Player player5 = new Player("Earth Hashira", "HimejimaGyomei", 10,229);
-        Player player6 = new Player("Mahito the Cursed", "PatchedFace010", 2,51);
-        Player player7 = new Player("Aisha Kombucha >.<", "GalvanAisha888", 34, 773);
-        Player player8 = new Player("Psst-Hannia", "LileAqua33",180, 3500);
-        Player player9 = new Player("_Shade_", "NamiValadez2109",77,1549);
-        Player player10 = new Player("bsw. Aszche", "Lindemann21",43, 891);
+        } catch(DuplicateExceptions e) {
+            System.out.println(e.getMessage());
+        }
+
+        existingUsernames.add(player1.getUserName());
+        existingUsernames.add(player2.getUserName());
+        existingUsernames.add(player3.getUserName());
+        existingUsernames.add(player4.getUserName());
+        existingUsernames.add(player5.getUserName());
+        existingUsernames.add(player6.getUserName());
+        existingUsernames.add(player7.getUserName());
+        existingUsernames.add(player8.getUserName());
+        existingUsernames.add(player9.getUserName());
+        existingUsernames.add(player10.getUserName());
 
         ArrayList<Player> gameContestants = new ArrayList<>();
         gameContestants.add(player1);
@@ -57,7 +74,6 @@ public class Main {
         Map<Integer, Integer> winRankingMap = Sort.sortByWins(playersMap);
 
         System.out.println("Total Wins Ranking: "+ winRankingMap);
-        System.out.println("Quiondas we");
 
         // Sorting by Number of Wins
 
