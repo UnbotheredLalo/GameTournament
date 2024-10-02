@@ -1,10 +1,13 @@
 package player;
 
+import java.time.ZonedDateTime;
 import java.util.Set;
 import java.util.HashSet;
 import exceptions.DuplicateExceptions;
+import exceptions.ErrorMessages;
 import skills.Skills;
 import skills.Category;
+import utils.DateTimeUtils;
 
 public class Player {
 
@@ -15,73 +18,90 @@ public class Player {
     private Skills skills;
     public static HashSet<String> existingUsernames = new HashSet<>();
     public static HashSet<String> existingGamerTags = new HashSet<>();
+    static final int NEW_MY_LEVEL = 1;
+    static final int NEW_NUM_WINS = 0;
 
-    // Constructor
-    public Player(String userName, String gamerTag, int myLevel, int numWins) throws DuplicateExceptions {
+
+    // User Credentials validation methods
+    public void checkUserCredentials(String userName, String gamerTag) throws DuplicateExceptions {
 
         if (userName == null || gamerTag == null) {
-            throw new NullPointerException("Username or Gamertag cannot be null");
+            throw new NullPointerException(ErrorMessages.NULL_USER_NAME.getMessage());
 
-            if (existingUsernames.contains(userName)) {
-                throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_USER_NAME);
+        }
+        if (existingUsernames.contains(userName)) {
+            throw new DuplicateExceptions(ErrorMessages.DUPLICATED_USER_NAME.getMessage());
 
-            }
-            if (existingGamerTags.contains(gamerTag)) {
-                throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_GAMERTAG);
-            }
-            this.userName = userName;
-            this.gamerTag = gamerTag;
-            this.myLevel = myLevel;
-            this.numWins = numWins;
-            this.skills = new Skills();
-            existingUsernames.add(userName);
-            existingGamerTags.add(gamerTag);
+        }
+        if (existingGamerTags.contains(gamerTag)) {
+            throw new DuplicateExceptions(ErrorMessages.DUPLICATED_GAMERTAG.getMessage());
+
         }
     }
 
-    public Player(String userName, String gamerTag) throws DuplicateExceptions {
+    public void validateUserName(String userName) throws DuplicateExceptions {
 
         if (existingUsernames.contains(userName)) {
-            throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_USER_NAME);
+            throw new DuplicateExceptions(ErrorMessages.DUPLICATED_USER_NAME.getMessage());
 
-        } if (existingGamerTags.contains(gamerTag)) {
-            throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_GAMERTAG);
+        } else {
+            this.userName = userName;
         }
-        this.userName = userName;
-        this.gamerTag = gamerTag;
-        this.myLevel = 1;
-        this.numWins = 0;
-        existingUsernames.add(userName);
-        existingGamerTags.add(gamerTag);
-        System.out.println("Congratulations!! " + getUserName() + " you've created your user. Be Welcomed");
     }
 
+    public void validateGamerTag(String gamerTag) throws DuplicateExceptions {
+
+        if (existingGamerTags.contains(gamerTag)) {
+            throw new DuplicateExceptions(ErrorMessages.DUPLICATED_GAMERTAG.getMessage());
+
+        } else if (this.gamerTag != null && !this.gamerTag.isEmpty()) {
+            throw new IllegalStateException(ErrorMessages.UNCHANGEABLE_USERNAME.getMessage());
+
+        } else {
+            this.gamerTag = gamerTag;
+        }
+    }
+
+    // Constructors
+    public Player(String userName, String gamerTag, int myLevel, int numWins) throws DuplicateExceptions {
+        checkUserCredentials(userName, gamerTag);
+        this.userName = userName;
+        this.gamerTag = gamerTag;
+        this.myLevel = myLevel;
+        this.numWins = numWins;
+        this.skills = new Skills();
+        existingUsernames.add(userName);
+        existingGamerTags.add(gamerTag);
+    }
+
+    private ZonedDateTime createdAt; // TODO: Create getters and setters
+
+    public Player(String userName, String gamerTag) throws DuplicateExceptions {
+        checkUserCredentials(userName, gamerTag);
+        this.userName = userName;
+        this.gamerTag = gamerTag;
+        this.myLevel = NEW_MY_LEVEL;
+        this.numWins = NEW_NUM_WINS;
+        existingUsernames.add(userName);
+        existingGamerTags.add(gamerTag);
+        createdAt = DateTimeUtils.getCurrentZonedDateTime();
+        System.out.println("Congratulations!! " + getUserName() + " you've created your user!" +
+                "\n" + "(Date time: " + createdAt + "). Be Welcomed");
+    }
+
+    //Setters and Getters
     public void assignSkills(Category category) { this.skills.setCategory(category); }
 
     public Set<String> getSkills() { return skills.getSkills(); }
 
     public void setUserName(String userName) throws DuplicateExceptions {
-
-        if (existingUsernames.contains(userName)) {
-            throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_USER_NAME);
-        } else {
-            this.userName = userName;
-        }
+        validateUserName(userName);
     }
 
     public String getUserName() { return this.userName;}
 
-    public void setGamerTag(String gamerTag) throws DuplicateExceptions {
-
-        if (existingGamerTags.contains(gamerTag)) {
-            throw new DuplicateExceptions(DuplicateExceptions.DUPLICATED_GAMERTAG);
-
-        } else if (this.gamerTag != null && !this.gamerTag.isEmpty()) {
-            throw new IllegalStateException("Cannot change gamertag once it's created");
-
-        } else {
-            this.gamerTag = gamerTag;
-        }
+    public void setGamerTag(String gamerTag) throws DuplicateExceptions  {
+        validateGamerTag(gamerTag);
     }
 
     public String getGamerTag() { return this.gamerTag; }
@@ -94,7 +114,7 @@ public class Player {
 
     public int getNumWins() { return this.numWins; }
 
-
+    // TODO: Add created at to method
     @Override
     public String toString() {
         return "Username: " + getUserName() + "\n"
