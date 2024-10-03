@@ -2,11 +2,11 @@ package skills;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Skill {
+public class Skills {
 
     private final Set<String> skills;
 
-    public Skill() { this.skills = new HashSet<>(); }
+    public Skills() { this.skills = new HashSet<>(); }
 
     // Setters and Getters
     public void setCategory(Category category) {
