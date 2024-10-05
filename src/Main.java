@@ -1,59 +1,32 @@
-
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
-import exceptions.DuplicateExceptions;
+
 import player.Player;
 import utils.Sort;
 
-import static player.Player.existingUsernames;
-import static skills.Category.DUELIST;
-import static skills.Category.SENTINEL;
 import static skills.Category.CONTROLLER;
+import static skills.Category.DUELIST;
 import static skills.Category.INITIATOR;
+import static skills.Category.SENTINEL;
 
 public class Main {
     public static void main(String[] args) {
 
-        Player newPlayer1 = null;
-        Player player1 = null;
-        Player player2 = null;
-        Player player3 = null;
-        Player player4 = null;
-        Player player5 = null;
-        Player player6 = null;
-        Player player7 = null;
-        Player player8 = null;
-        Player player9 = null;
-        Player player10 = null;
+        Player newPlayer1 = new Player("xXx Dartrox xXx", "Dartrox21");
 
-        try {
-            newPlayer1 = new Player("xXx Dartrox xXx", "Dartrox21");
-            player1 = new Player("El Mata Jotos", "FlowerBoyXO91", 55, 1106);
-            player2 = new Player("xXxPepitoxXx", "PepeProblemz88", 150, 2800);
-            player3 = new Player("The Piped Piper", "MustaineDave1977", 90, 1909);
-            player4 = new Player("The Tomorrow XO", "AbelTesfaye24", 20, 578);
-            player5 = new Player("Earth Hashira", "HimejimaGyomei", 10, 229);
-            player6 = new Player("Mahito the Cursed", "PatchedFace010", 2, 51);
-            player7 = new Player("Aisha Kombucha >.<", "GalvanAisha888", 34, 773);
-            player8 = new Player("Psst-Hannia", "LileAqua33", 180, 3500);
-            player9 = new Player("_Shade_", "NamiValadez2109", 77, 1549);
-            player10 = new Player("bsw. Aszche", "Lindemann21", 43, 891);
-        } catch(DuplicateExceptions e) {
-            System.out.println(e.getMessage());;
-        }
-
-        existingUsernames.add(Objects.requireNonNull(player1).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player2).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player3).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player4).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player5).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player6).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player7).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player8).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player9).getUserName());
-        existingUsernames.add(Objects.requireNonNull(player10).getUserName());
+        Player player1 = new Player("El Mata Jotos", "FlowerBoyXO91", 55, 1106 );
+        Player player2 = new Player("xXxPepitoxXx", "PepeProblemz88", 150, 2800);
+        Player player3 = new Player("The Piped Piper", "MustaineDave1977", 90,1909);
+        Player player4 = new Player("The Tomorrow XO", "AbelTesfaye24", 20,578);
+        Player player5 = new Player("Earth Hashira", "HimejimaGyomei", 10,229);
+        Player player6 = new Player("Mahito the Cursed", "PatchedFace010", 2,51);
+        Player player7 = new Player("Aisha Kombucha >.<", "GalvanAisha888", 34, 773);
+        Player player8 = new Player("Psst-Hannia", "LileAqua33",180, 3500);
+        Player player9 = new Player("_Shade_", "NamiValadez2109",77,1549);
+        Player player10 = new Player("bsw. Aszche", "Lindemann21",43, 891);
 
         ArrayList<Player> gameContestants = new ArrayList<>();
         gameContestants.add(player1);
@@ -84,6 +57,7 @@ public class Main {
         Map<Integer, Integer> winRankingMap = Sort.sortByWins(playersMap);
 
         System.out.println("Total Wins Ranking: "+ winRankingMap);
+        System.out.println("Quiondas we");
 
         // Sorting by Number of Wins
 
